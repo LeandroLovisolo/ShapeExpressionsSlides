@@ -1,0 +1,42 @@
+<DocumentShape> {
+  rdf:type anno:Document,
+  anno:hasTable @<TableShape>
+}
+
+<TableShape> {
+  anno:hasForRow @<RowShape>
+}
+
+<RowShape> {
+  anno:hasForRelation @<MillingSolidQuantityOutputRelationShape>
+}
+
+<MillingSolidQuantityOutputRelationShape> {
+  core:hasAccessConcept @<SolidAccessConceptShape>,
+  core:hasAccessConcept @<LiquidAccessConceptShape>,
+  core:hasResultConcept @<OutputResultConceptShape>
+}
+
+<SolidAccessConceptShape> {
+  rdf:type bioraf:biomass_quantity,
+  anno:hasForFS @<FuzzySetShape>
+}
+
+<LiquidAccessConceptShape> {
+  rdf:type bioraf:water_quantity,
+  anno:hasForFS @<FuzzySetShape>
+}
+
+<OutputAccessConceptShape> {
+  rdf:type bioraf:output_solid_constituent_quantity,
+  anno:hasForFS @<FuzzySetShape>
+}
+
+<FuzzySetShape> {
+  rdf:type anno:Scalar,
+  anno:hasForFuzzyElement @<FuzzyElementShape>
+}
+
+<FuzzyElementShape> {
+  anno:hasForMaxKernel xsd:string
+}

@@ -1,0 +1,61 @@
+<DocumentShape> {
+  rdf:type anno:Document,
+  anno:hasTable @<TableShape>
+}
+
+<TableShape> {
+  anno:hasForRow @<PreMillingRowShape>,
+  anno:hasForRow @<EnzymaticHydrolysisRowShape>
+}
+
+<PreMillingRowShape> {
+  & <RowShape>,
+  anno:hasForCell @<PreMillingCellShape>
+}
+
+<PreMillingCellShape> {
+  & <RowShape>,
+  anno:hasForFS @<PreMillingFuzzySet>
+}
+
+<PreMillingFuzzySet> {
+  anno:hasForElement (bioraf:ball_mlling bioraf:wet_disk_milling ...)
+}
+
+<EnzymaticHydrolysisRowShape> {
+  anno:hasForCell @<EnzymaticHydrolysisCellShape>
+}
+
+<EnzymaticHydrolysisCellShape> {
+  anno:hasForFS @<EnzymaticHydrolysisFuzzySet>
+}
+
+<EnzymaticHydrolysisFuzzySet> {
+  anno:hasForElement bioraf:enzymatic_hydrolysis_treatment
+}
+
+<RowShape> {
+  anno:hasForRowNumber xsd:integer,
+  anno:hasForCell @<ExperienceNumberCellShape>,
+  anno:hasForCell @<ProcessStepeNumberCellShape>
+}
+
+<ExperienceNumberCellShape> {
+  rdf:type bioraf:experience_number,
+  anno:hasForFS @<FuzzySetShape>
+}
+
+<ProcessStepNumberCellShape> {
+  rdf:type bioraf:experience_number,
+  anno:hasForFS @<FuzzySetShape>
+}
+
+<FuzzySetShape> {
+  rdf:type anno:Scalar,
+  anno:hasForFuzzyElement @<FuzzyElementShape>
+}
+
+<FuzzyElementShape> {
+  anno:hasForMinKernel xsd:string
+}
+
