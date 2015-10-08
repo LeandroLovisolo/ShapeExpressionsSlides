@@ -521,6 +521,7 @@ FILTER (xsd:float(?output_qty) != xsd:float(?solid_qty) + xsd:float(?liquid_qty)
 <RowShape> { anno:hasForRelation @<MillingSolidQuantityOutputRelationShape> }
 
 <MillingSolidQuantityOutputRelationShape> {
+  rdf:type bioraf:milling_solid_quantity_output_relation,
   core:hasAccessConcept @<SolidAccessConceptShape>,
   core:hasAccessConcept @<LiquidAccessConceptShape>,
   core:hasResultConcept @<OutputResultConceptShape>
@@ -546,9 +547,7 @@ FILTER (xsd:float(?output_qty) != xsd:float(?solid_qty) + xsd:float(?liquid_qty)
   anno:hasForFuzzyElement @<FuzzyElementShape>
 }
 
-<FuzzyElementShape> {
-  anno:hasForMaxKernel xsd:string
-}
+<FuzzyElementShape> { anno:hasForMaxKernel xsd:string }
   \end{Verbatim}
 
 \end{frame}
